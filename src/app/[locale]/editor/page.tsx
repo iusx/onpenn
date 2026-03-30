@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useCallback } from 'react'
+import { Suspense, useState, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { useParams, useSearchParams } from 'next/navigation'
 import { comics } from '@/data/comics'
@@ -36,6 +36,14 @@ const DEFAULT_MARK: Omit<Mark, 'id' | 'x' | 'y'> = {
 }
 
 export default function EditorPage() {
+  return (
+    <Suspense>
+      <EditorInner />
+    </Suspense>
+  )
+}
+
+function EditorInner() {
   const params = useParams()
   const searchParams = useSearchParams()
   const locale = isValidLocale(params.locale as string) ? (params.locale as Locale) : defaultLocale

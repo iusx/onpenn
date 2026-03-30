@@ -2,7 +2,7 @@
 
 import { useState, useRef, useCallback } from 'react'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { useParams, useSearchParams } from 'next/navigation'
 import { comics } from '@/data/comics'
 import { getMessages, isValidLocale, defaultLocale, locales, localeNames, type Locale } from '@/lib/i18n'
 import { LanguageSwitcher } from '@/components/LanguageSwitcher'
@@ -37,10 +37,12 @@ const DEFAULT_MARK: Omit<Mark, 'id' | 'x' | 'y'> = {
 
 export default function EditorPage() {
   const params = useParams()
+  const searchParams = useSearchParams()
   const locale = isValidLocale(params.locale as string) ? (params.locale as Locale) : defaultLocale
   const t = getMessages(locale)
 
-  const [comicId, setComicId] = useState(comics[0]?.id ?? '')
+  const initialComicId = searchParams.get('comic') ?? comics[0]?.id ?? ''
+  const [comicId, setComicId] = useState(initialComicId)
   const [marks, setMarks] = useState<Mark[]>([])
   const [selected, setSelected] = useState<string | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)

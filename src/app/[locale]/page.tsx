@@ -34,7 +34,6 @@ export default function HomePage({ params }: { params: { locale: string } }) {
       <Suspense fallback={<p>{messages.loading}</p>}>
         <DailyComic locale={locale} messages={messages} />
       </Suspense>
-      <p><Link href={`/${locale}/editor`}>{messages.openEditor}</Link></p>
     </div>
   )
 }

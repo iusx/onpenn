@@ -52,7 +52,7 @@ export function DailyComic({ locale, messages }: Props) {
           alt={translation?.title ?? ''}
           style={{ display: 'block', maxWidth: '100%', maxHeight: '85vh' }}
         />
-        {showOverlays && translation?.bubbles.map(b =>
+        {showOverlays && translation?.bubbles?.map(b =>
           b.x !== undefined && b.y !== undefined ? (
             <div
               key={b.id}
@@ -87,6 +87,9 @@ export function DailyComic({ locale, messages }: Props) {
         <button onClick={goRandom}>🎲 {messages.nextDay}</button>
         <Link href={`/${locale}/comics`} style={{ textDecoration: 'none' }}>
           <button>☰ {messages.allComics}</button>
+        </Link>
+        <Link href={`/${locale}/editor?comic=${currentId}`} style={{ textDecoration: 'none' }}>
+          <button>✏️ {messages.openEditor}</button>
         </Link>
       </div>
     </>

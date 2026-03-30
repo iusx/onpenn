@@ -29,14 +29,12 @@ export default function HomePage({ params }: { params: { locale: string } }) {
   const messages = getMessages(locale)
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem', padding: '1rem' }}>
+    <div className="page">
       <LanguageSwitcher currentLocale={locale} />
       <Suspense fallback={<p>{messages.loading}</p>}>
         <DailyComic locale={locale} messages={messages} />
       </Suspense>
-      <Link href={`/${locale}/editor`} style={{ fontSize: '0.85rem', color: '#888' }}>
-        {messages.openEditor}
-      </Link>
+      <p><Link href={`/${locale}/editor`}>{messages.openEditor}</Link></p>
     </div>
   )
 }

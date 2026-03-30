@@ -22,8 +22,8 @@ export default function RootPage() {
   }, [router])
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-amber-500 font-semibold text-lg">…</div>
+    <div>
+      <p>…</p>
     </div>
   )
 }

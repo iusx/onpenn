@@ -22,16 +22,17 @@ interface Mark {
 }
 
 const FONTS = [
-  { label: 'Sans-serif', value: 'sans-serif' },
-  { label: 'Serif', value: 'serif' },
-  { label: 'Monospace', value: 'monospace' },
+  { label: '沐瑶软笔手写体', value: 'Muyao-Softbrush' },
+  { label: '悠哉中等体', value: 'Yozai-Medium' },
+  { label: '无衬线 (sans-serif)', value: 'sans-serif' },
+  { label: '衬线 (serif)', value: 'serif' },
+  { label: '等宽 (monospace)', value: 'monospace' },
   { label: 'Comic Sans', value: '"Comic Sans MS", cursive' },
-  { label: 'Impact', value: 'Impact, fantasy' },
 ]
 
 const DEFAULT_MARK: Omit<Mark, 'id' | 'x' | 'y'> = {
   w: 28, h: 15, fontSize: 1.5, text: '', position: 'left',
-  bg: 'rgba(255,240,80,0.75)', shape: 'rect', fontFamily: 'sans-serif',
+  bg: 'rgba(255,240,80,0.75)', shape: 'rect', fontFamily: 'Muyao-Softbrush',
 }
 
 export default function EditorPage() {

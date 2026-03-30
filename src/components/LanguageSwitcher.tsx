@@ -4,6 +4,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { locales, localeNames, type Locale } from '@/lib/i18n'
 
+const localeShort: Record<Locale, string> = {
+  zh: '中',
+  en: 'EN',
+  ru: 'RU',
+}
+
 interface Props {
   currentLocale: Locale
 }
@@ -19,14 +25,15 @@ export function LanguageSwitcher({ currentLocale }: Props) {
   }
 
   return (
-    <div style={{ display: 'inline-flex', gap: '0.5rem' }}>
+    <div className="nav-bar">
       {locales.map((locale) => (
         <Link
           key={locale}
           href={getLocalePath(locale)}
           style={{ fontWeight: locale === currentLocale ? 'bold' : 'normal' }}
         >
-          {localeNames[locale]}
+          <span className="lang-full">{localeNames[locale]}</span>
+          <span className="lang-short">{localeShort[locale]}</span>
         </Link>
       ))}
     </div>

@@ -1,36 +1,22 @@
 import { comics } from '@/data/comics'
 import type { Comic } from '@/data/comics'
 
-export function getDailyComic(date: Date = new Date()): Comic {
-  const y = date.getFullYear()
-  const m = date.getMonth() + 1
-  const d = date.getDate()
-  // Simple deterministic hash: same date always returns the same comic
-  const seed = y * 10000 + m * 100 + d
-  const idx = seed % comics.length
-  return comics[idx]
+export function getComicsCount(): number {
+  return comics.length
 }
 
-export function getDateString(date: Date): string {
-  const y = date.getFullYear()
-  const m = String(date.getMonth() + 1).padStart(2, '0')
-  const d = String(date.getDate()).padStart(2, '0')
-  return `${y}-${m}-${d}`
+export function getComicByIdx(idx: number): Comic {
+  const count = comics.length
+  return comics[((idx % count) + count) % count]
 }
 
-export function addDays(date: Date, days: number): Date {
-  const result = new Date(date)
-  result.setDate(result.getDate() + days)
-  return result
+export function getComicById(id: string): Comic | undefined {
+  return comics.find(c => c.id === id)
 }
 
-export function formatDate(date: Date, locale: string): string {
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }
-  const intlLocale =
-    locale === 'zh' ? 'zh-CN' : locale === 'ru' ? 'ru-RU' : 'en-US'
-  return date.toLocaleDateString(intlLocale, options)
+export function getRandomId(excludeId?: string): string {
+  const count = comics.length
+  if (count <= 1) return comics[0].id
+  const candidates = comics.filter(c => c.id !== excludeId)
+  return candidates[Math.floor(Math.random() * candidates.length)].id
 }

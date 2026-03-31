@@ -27,6 +27,8 @@ export interface ComicTranslation {
   /** Default font for all bubbles in this translation; can be overridden per bubble */
   fontFamily?: string;
   translatorNote?: string;
+  /** Joke explanation / punchline analysis shown on demand */
+  explanation?: string;
 }
 
 export interface Comic {

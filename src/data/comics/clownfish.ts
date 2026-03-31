@@ -10,6 +10,7 @@ export const clownfish: Comic = {
   translations: {
     zh: {
       title: "那里没什么可怕的。只不过是一条小丑鱼而已！",
+      explanation: "漫画巧妙地利用了“小丑鱼”的双关语，将原本可爱无害的海洋生物替换成了《小丑回魂》中举着红气球躲在暗处的恐怖小丑（Pennywise），通过鱼儿对致命危险浑然不觉却强作镇定的台词制造了极具荒诞感的惊悚笑点。",
       bubbles: [
         {
           id: "b1",
@@ -27,6 +28,7 @@ export const clownfish: Comic = {
     },
     en: {
       title: "There's nothing to be afraid of. It's just a clownfish!",
+      explanation: "This comic cleverly plays on the double meaning of 'clownfish,' replacing the originally cute and harmless marine creature with the terrifying clown (Pennywise) from 'It,' who hides in the shadows holding a red balloon. The humor arises from the absurdity of the fish being completely oblivious to the deadly danger it is in, while trying to act nonchalant with its line.",
       bubbles: [
         {
           id: "b1",

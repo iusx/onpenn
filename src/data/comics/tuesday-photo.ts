@@ -11,6 +11,7 @@ export const tuesdayPhoto: Comic = {
     zh: {
       title: "你看起来跟你的照片不像。",
       fontFamily: "Yozai-Medium",
+      explanation: "漫画巧妙地结合了网恋“照骗”的梗与香蕉保鲜期极短的自然特性，幽默地调侃了香蕉仅仅过了几天（星期二拍的）就从新鲜亮黄变得布满黑斑、判若两人的夸张反差。",
       bubbles: [
         {
           id: "b1",
@@ -39,6 +40,7 @@ export const tuesdayPhoto: Comic = {
     en: {
       title: "You Don't Look Like Your Photo.",
       fontFamily: "'Comic Sans MS', cursive",
+      explanation: "This comic humorously combines the 'catfishing' trope of online dating with the natural characteristic of bananas having a very short shelf life. It jokes about how a banana can look fresh and bright yellow in a photo taken on Tuesday, but just a few days later it becomes covered in black spots and looks completely different, exaggerating the contrast for comedic effect.",
       bubbles: [
         {
           id: "b1",

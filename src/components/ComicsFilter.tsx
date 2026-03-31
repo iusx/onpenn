@@ -12,7 +12,7 @@ interface Props {
 }
 
 function unique(values: string[]): string[] {
-  return [...new Set(values)]
+  return Array.from(new Set(values))
 }
 
 const btnBase: React.CSSProperties = {

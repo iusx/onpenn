@@ -17,6 +17,7 @@ export function DailyComic({ locale, messages }: Props) {
   const searchParams = useSearchParams()
 
   const [currentId, setCurrentId] = useState<string | null>(null)
+  const [showExplanation, setShowExplanation] = useState(false)
 
   useEffect(() => {
     const idParam = searchParams.get('name')
@@ -41,6 +42,7 @@ export function DailyComic({ locale, messages }: Props) {
     const newId = getRandomId(currentId!)
     const params = new URLSearchParams(searchParams.toString())
     params.set('name', newId)
+    setShowExplanation(false)
     router.push(`${pathname}?${params.toString()}`)
   }
 
@@ -81,6 +83,49 @@ export function DailyComic({ locale, messages }: Props) {
               {b.text}
             </div>
           ) : null
+        )}
+        {translation?.explanation && (
+          <button
+            onClick={() => setShowExplanation(v => !v)}
+            title={messages.jokeExplanation}
+            style={{
+              position: 'absolute',
+              bottom: '6px',
+              right: '6px',
+              width: '24px',
+              height: '24px',
+              borderRadius: '50%',
+              border: '1px solid #aaa',
+              background: 'rgba(255,255,255,0.85)',
+              cursor: 'pointer',
+              fontSize: '13px',
+              fontWeight: 'bold',
+              lineHeight: 1,
+              padding: 0,
+            }}
+          >
+            ?
+          </button>
+        )}
+        {showExplanation && translation?.explanation && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '36px',
+              right: '6px',
+              maxWidth: '70%',
+              background: 'rgba(255,255,255,0.95)',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              padding: '8px 10px',
+              fontSize: '13px',
+              lineHeight: 1.5,
+              boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+            }}
+          >
+            <b style={{ display: 'block', marginBottom: '4px' }}>{messages.jokeExplanation}</b>
+            {translation.explanation}
+          </div>
         )}
       </div>
       <div className="nav-bar">

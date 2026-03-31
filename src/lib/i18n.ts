@@ -20,6 +20,7 @@ export interface Messages {
   today: string
   loading: string
   translatorNote: string
+  jokeExplanation: string
   comicNotFound: string
   openEditor: string
   allComics: string
@@ -55,6 +56,7 @@ const messages: Record<Locale, Messages> = {
     today: '换一张',
     loading: '加载中…',
     translatorNote: '译者注',
+    jokeExplanation: '笑点解析',
     comicNotFound: '今天找不到漫画',
     openEditor: '贡献翻译',
     allComics: '全部漫画',
@@ -87,6 +89,7 @@ const messages: Record<Locale, Messages> = {
     today: 'Shuffle',
     loading: 'Loading…',
     translatorNote: "Translator's note",
+    jokeExplanation: 'Explain the joke',
     comicNotFound: 'No comic found',
     openEditor: 'Contribute Translation',
     allComics: 'All Comics',
@@ -119,6 +122,7 @@ const messages: Record<Locale, Messages> = {
     today: 'Случайный',
     loading: 'Загрузка…',
     translatorNote: 'Примечание переводчика',
+    jokeExplanation: 'Объяснение шутки',
     comicNotFound: 'Комикс не найден',
     openEditor: 'Внести перевод',
     allComics: 'Все комиксы',

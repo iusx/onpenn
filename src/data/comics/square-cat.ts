@@ -11,6 +11,7 @@ export const sourcePhoto: Comic = {
     zh: {
       title: "纸箱综合征",
       fontFamily: "Yozai-Medium",
+      explanation: "猫咪因为在纸箱里待了太长时间，整个身体都已经变成了方形。“纸箱综合征”是网络上调侃猫咪过度依赖纸箱的幽默说法，暗指猫咪因为长时间待在纸箱里而产生的各种“症状”。漫画中的猫咪已经完全变成了一个方形，夸张地表现了这个梗。",
       bubbles: [
         {
           id: "b1",
@@ -28,6 +29,7 @@ export const sourcePhoto: Comic = {
     },
     en: {
       title: "Box Syndrome",
+      explanation: "Box Syndrome is a humorous internet term referring to cats who spend so much time in boxes that they start to exhibit 'symptoms' of it. The joke is that the cat has been in the box for so long that it has become completely square-shaped, exaggerating the idea of 'Box Syndrome'.",
       bubbles: [
         {
           id: "b1",

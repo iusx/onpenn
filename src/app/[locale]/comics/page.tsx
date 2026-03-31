@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 import { isValidLocale, getMessages, locales, type Locale } from '@/lib/i18n'
 import { comics } from '@/data/comics'
 import { LanguageSwitcher } from '@/components/LanguageSwitcher'
+import { ComicsFilter } from '@/components/ComicsFilter'
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -31,22 +32,7 @@ export default function ComicsListPage({ params }: { params: { locale: string } 
         <b>{messages.allComics}</b>
         <LanguageSwitcher currentLocale={locale} />
       </div>
-      <ul>
-        {comics.map((comic) => {
-          const translation =
-            comic.translations[locale] ??
-            comic.translations['en'] ??
-            (Object.values(comic.translations)[0] as (typeof comic.translations)['en'])
-          return (
-            <li key={comic.id}>
-              <Link href={`/${locale}/?name=${comic.id}`}>
-                {translation?.title ?? comic.id}
-              </Link>
-              {comic.date && <> — <small>{comic.date}</small></>}
-            </li>
-          )
-        })}
-      </ul>
+      <ComicsFilter comics={comics} locale={locale} messages={messages} />
     </div>
   )
 }

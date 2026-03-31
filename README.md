@@ -37,7 +37,7 @@ pnpm dev
 | Position | `left` / `right` — which speaker the bubble belongs to |
 | Text | The translated text for this bubble |
 
-### 4. Copy the output and paste it into `comics.ts`
+### 4. Copy the output and paste it into the comic file
 
 Click **Copy** in the side panel. The output looks like:
 
@@ -47,10 +47,13 @@ bubbles: [
 ]
 ```
 
-Paste it into the matching translation block inside `src/data/comics.ts`:
+Each comic lives in its own file at `src/data/comics/<comic-id>.ts`. Open the matching file and paste into the relevant translation block:
 
 ```ts
-{
+// src/data/comics/my-comic.ts
+import type { Comic } from "./types";
+
+export const myComic: Comic = {
   id: "my-comic",
   image: "/comics/my-comic.jpg",
   author: "Author Name",
@@ -71,7 +74,18 @@ Paste it into the matching translation block inside `src/data/comics.ts`:
       ],
     },
   },
-}
+};
+```
+
+If this is a **new** comic, also register it in `src/data/comics/index.ts`:
+
+```ts
+import { myComic } from "./my-comic";
+
+export const comics = [
+  // ... existing entries
+  myComic,
+];
 ```
 
 ### 5. `sourceLanguage`
@@ -113,7 +127,7 @@ const FONTS = [
 ]
 ```
 
-4. Use the font name in `fontFamily` fields inside `comics.ts` or select it in the editor.
+4. Use the font name in `fontFamily` fields inside the comic file or select it in the editor.
 
 ---
 

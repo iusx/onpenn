@@ -37,7 +37,7 @@ pnpm dev
 | 位置 | `left` / `right` — 气泡所属的说话角色 |
 | 文字 | 该气泡的翻译文本 |
 
-### 4. 复制输出并粘贴到 `comics.ts`
+### 4. 复制输出并粘贴到对应漫画文件
 
 点击侧边栏中的**复制**按钮。输出格式如下：
 
@@ -47,10 +47,13 @@ bubbles: [
 ]
 ```
 
-将其粘贴到 `src/data/comics.ts` 中对应的翻译块内：
+每张漫画都有自己的文件 `src/data/comics/<comic-id>.ts`。打开对应文件，将内容粘贴到相应的翻译块内：
 
 ```ts
-{
+// src/data/comics/my-comic.ts
+import type { Comic } from "./types";
+
+export const myComic: Comic = {
   id: "my-comic",
   image: "/comics/my-comic.jpg",
   author: "作者名",
@@ -71,7 +74,18 @@ bubbles: [
       ],
     },
   },
-}
+};
+```
+
+如果这是一张**新漫画**，还需要在 `src/data/comics/index.ts` 中注册：
+
+```ts
+import { myComic } from "./my-comic";
+
+export const comics = [
+  // ... 已有条目
+  myComic,
+];
 ```
 
 ### 5. `sourceLanguage`（原始语言）
@@ -113,7 +127,7 @@ const FONTS = [
 ]
 ```
 
-4. 在 `comics.ts` 的 `fontFamily` 字段中使用字体名称，或在编辑器中直接选择。
+4. 在漫画文件的 `fontFamily` 字段中使用字体名称，或在编辑器中直接选择。
 
 ---
 

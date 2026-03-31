@@ -376,8 +376,10 @@ function EditorInner() {
           ))}
 
           <div style={{ marginTop: '0.5rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-              <b>{t.editorOutput}</b>
+            <div style={{ marginBottom: '4px' }}>
+              <b>{t.editorOutput} — <code>src/data/comics/{comicId}.ts</code></b>
+            </div>
+            <div style={{ marginBottom: '4px' }}>
               <button onClick={() => navigator.clipboard.writeText(output)}>{t.editorCopy}</button>
             </div>
             <textarea

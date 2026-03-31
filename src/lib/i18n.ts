@@ -23,6 +23,7 @@ export interface Messages {
   comicNotFound: string
   openEditor: string
   allComics: string
+  filterAll: string
   // editor page
   editorTitle: string
   editorComic: string
@@ -57,6 +58,7 @@ const messages: Record<Locale, Messages> = {
     comicNotFound: '今天找不到漫画',
     openEditor: '贡献翻译',
     allComics: '全部漫画',
+    filterAll: '全部',
     editorTitle: '气泡编辑器',
     editorComic: '漫画',
     editorHint: '点击图片添加，拖动移动，拖右/下边调整宽高',
@@ -71,7 +73,7 @@ const messages: Record<Locale, Messages> = {
     editorOpacity: '透明度',
     editorPosition: '位置',
     editorBubbleText: '气泡文字…',
-    editorOutput: '输出（粘贴到 comics.ts）',
+    editorOutput: '输出',
     editorCopy: '复制',
     editorBackHome: '返回首页',
   },
@@ -88,6 +90,7 @@ const messages: Record<Locale, Messages> = {
     comicNotFound: 'No comic found',
     openEditor: 'Contribute Translation',
     allComics: 'All Comics',
+    filterAll: 'All',
     editorTitle: 'Bubble Editor',
     editorComic: 'Comic',
     editorHint: 'Click to add, drag to move, drag right/bottom edge to resize',
@@ -102,7 +105,7 @@ const messages: Record<Locale, Messages> = {
     editorOpacity: 'Opacity',
     editorPosition: 'Position',
     editorBubbleText: 'Bubble text…',
-    editorOutput: 'Output (paste into comics.ts)',
+    editorOutput: 'Output',
     editorCopy: 'Copy',
     editorBackHome: 'Back to Home',
   },
@@ -119,6 +122,7 @@ const messages: Record<Locale, Messages> = {
     comicNotFound: 'Комикс не найден',
     openEditor: 'Внести перевод',
     allComics: 'Все комиксы',
+    filterAll: 'Все',
     editorTitle: 'Редактор пузырей',
     editorComic: 'Комикс',
     editorHint: 'Клик — добавить, тяни для перемещения, тяни правый/нижний край для изменения размера',
@@ -133,7 +137,7 @@ const messages: Record<Locale, Messages> = {
     editorOpacity: 'Прозрачность',
     editorPosition: 'Позиция',
     editorBubbleText: 'Текст пузыря…',
-    editorOutput: 'Вывод (вставить в comics.ts)',
+    editorOutput: 'Вывод',
     editorCopy: 'Копировать',
     editorBackHome: 'На главную',
   },

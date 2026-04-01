@@ -8,9 +8,12 @@ export const bloomerPhoto: Comic = {
   date: "2026-04-01",
   sourceLanguage: "en",
   translations: {
-    en: {title: "Late Bloomer"},
+    en: {
+      title: "Late Bloomer",
+    },
     zh: {
-      explanation: "漫画巧妙地利用了英语词组“late bloomer”（指大器晚成或开窍晚的人，字面意思是“晚开花的人/植物”）的双关语。父母在儿子一生平庸、一事无成时，一直用这句话自我安慰。直到儿子去世后很久，他光秃秃的坟前才终于开出了小花，用一种地狱笑话式的方式实现了字面意义上的“开花晚（late bloomer）”。",
+      explanation:
+        "漫画巧妙地利用了英语词组“late bloomer”（指大器晚成或开窍晚的人，字面意思是“晚开花的人/植物”）的双关语。父母在儿子一生平庸、一事无成时，一直用这句话自我安慰。直到儿子去世后很久，他光秃秃的坟前才终于开出了小花，用一种地狱笑话式的方式实现了字面意义上的“开花晚（late bloomer）”。",
       title: "大器晚成",
       bubbles: [
         {

@@ -10,6 +10,7 @@ export const bloomerPhoto: Comic = {
   translations: {
     en: {
       title: "Late Bloomer",
+      bubbles: [],
     },
     zh: {
       explanation:

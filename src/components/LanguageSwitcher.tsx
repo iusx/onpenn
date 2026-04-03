@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from 'react'
 import Link from 'next/link'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { locales, localeNames, type Locale } from '@/lib/i18n'
@@ -14,12 +15,11 @@ interface Props {
   currentLocale: Locale
 }
 
-export function LanguageSwitcher({ currentLocale }: Props) {
+function LanguageSwitcherInner({ currentLocale }: Props) {
   const pathname = usePathname()
   const searchParams = useSearchParams()
 
   function getLocalePath(locale: Locale): string {
-    // Replace the first path segment (the locale) with the new one
     const segments = pathname.split('/').filter(Boolean)
     segments[0] = locale
     const nextPath = '/' + segments.join('/')
@@ -28,7 +28,7 @@ export function LanguageSwitcher({ currentLocale }: Props) {
   }
 
   return (
-    <div className="nav-bar">
+    <>
       {locales.map((locale) => (
         <Link
           key={locale}
@@ -39,6 +39,16 @@ export function LanguageSwitcher({ currentLocale }: Props) {
           <span className="lang-short">{localeShort[locale]}</span>
         </Link>
       ))}
+    </>
+  )
+}
+
+export function LanguageSwitcher({ currentLocale }: Props) {
+  return (
+    <div className="nav-bar">
+      <Suspense>
+        <LanguageSwitcherInner currentLocale={currentLocale} />
+      </Suspense>
     </div>
   )
 }

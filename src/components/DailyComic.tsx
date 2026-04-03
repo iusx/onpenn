@@ -24,7 +24,12 @@ export function DailyComic({ locale, messages }: Props) {
     if (idParam && getComicById(idParam)) {
       setCurrentId(idParam)
     } else {
-      setCurrentId(getRandomId())
+      const randomId = getRandomId()
+      setCurrentId(randomId)
+      // Write the chosen ID into the URL so language switching preserves it
+      const params = new URLSearchParams(searchParams.toString())
+      params.set('name', randomId)
+      router.replace(`${pathname}?${params.toString()}`)
     }
   }, [searchParams])
 
@@ -64,7 +69,7 @@ export function DailyComic({ locale, messages }: Props) {
                 top: `${b.y}%`,
                 width: `${b.w ?? 28}%`,
                 height: b.h ? `${b.h}%` : undefined,
-                transform: 'translate(-50%, -50%)',
+                transform: `translate(-50%, -50%) rotate(${b.rotation ?? 0}deg)`,
                 background: b.bg,
                 borderRadius: b.shape === 'ellipse' ? '50%' : undefined,
                 textAlign: 'center',

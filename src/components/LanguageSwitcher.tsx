@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { locales, localeNames, type Locale } from '@/lib/i18n'
 
 const localeShort: Record<Locale, string> = {
@@ -16,12 +16,15 @@ interface Props {
 
 export function LanguageSwitcher({ currentLocale }: Props) {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
 
   function getLocalePath(locale: Locale): string {
     // Replace the first path segment (the locale) with the new one
     const segments = pathname.split('/').filter(Boolean)
     segments[0] = locale
-    return '/' + segments.join('/')
+    const nextPath = '/' + segments.join('/')
+    const query = searchParams.toString()
+    return query ? `${nextPath}?${query}` : nextPath
   }
 
   return (

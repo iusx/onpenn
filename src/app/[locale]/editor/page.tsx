@@ -13,6 +13,7 @@ interface Mark {
   y: number
   w: number
   h: number
+  rotation: number
   fontSize: number
   text: string
   position: 'left' | 'right'
@@ -31,7 +32,7 @@ const FONTS = [
 ]
 
 const DEFAULT_MARK: Omit<Mark, 'id' | 'x' | 'y'> = {
-  w: 28, h: 15, fontSize: 1.5, text: '', position: 'left',
+  w: 28, h: 15, rotation: 0, fontSize: 1.5, text: '', position: 'left',
   bg: 'rgba(255,240,80,0.75)', shape: 'rect', fontFamily: 'Muyao-Softbrush',
 }
 
@@ -160,6 +161,7 @@ function EditorInner() {
         `y: ${m.y}`,
         `w: ${m.w}`,
         ...(m.h > 0 ? [`h: ${m.h}`] : []),
+        ...(m.rotation !== 0 ? [`rotation: ${m.rotation}`] : []),
         `fontSize: ${m.fontSize}`,
         ...(m.bg !== DEFAULT_MARK.bg ? [`bg: '${m.bg}'`] : []),
         ...(m.shape !== 'rect' ? [`shape: '${m.shape}'`] : []),
@@ -215,7 +217,7 @@ function EditorInner() {
                     top: `${m.y}%`,
                     width: `${m.w}%`,
                     height: `${m.h}%`,
-                    transform: 'translate(-50%, -50%)',
+                    transform: `translate(-50%, -50%) rotate(${m.rotation}deg)`,
                     zIndex: 10,
                     background: m.bg,
                     borderRadius: m.shape === 'ellipse' ? '50%' : '0',
@@ -291,7 +293,16 @@ function EditorInner() {
                 <button onClick={e => { e.stopPropagation(); remove(m.id) }}>✕</button>
               </div>
               <div style={{ color: '#888', fontSize: '11px', marginBottom: '6px' }}>
-                x: {m.x}%  y: {m.y}%  w: {m.w}%  h: {m.h}%
+                x: {m.x}%  y: {m.y}%  w: {m.w}%  h: {m.h}%  r: {m.rotation}deg
+              </div>
+
+              {/* Rotation */}
+              <div style={{ marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <label style={{ whiteSpace: 'nowrap' }}>{t.editorRotation}</label>
+                <input type="range" min={-180} max={180} step={1} value={m.rotation}
+                  onChange={e => update(m.id, { rotation: Number(e.target.value) })}
+                  style={{ flex: 1 }} onClick={e => e.stopPropagation()} />
+                <span style={{ minWidth: '50px' }}>{m.rotation}deg</span>
               </div>
 
               {/* Font size */}

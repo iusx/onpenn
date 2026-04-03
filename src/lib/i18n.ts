@@ -39,6 +39,7 @@ export interface Messages {
   editorBg: string
   editorOpacity: string
   editorPosition: string
+  editorRotation: string
   editorBubbleText: string
   editorOutput: string
   editorCopy: string
@@ -74,6 +75,7 @@ const messages: Record<Locale, Messages> = {
     editorBg: '背景色',
     editorOpacity: '透明度',
     editorPosition: '位置',
+    editorRotation: '旋转',
     editorBubbleText: '气泡文字…',
     editorOutput: '输出',
     editorCopy: '复制',
@@ -107,6 +109,7 @@ const messages: Record<Locale, Messages> = {
     editorBg: 'Background',
     editorOpacity: 'Opacity',
     editorPosition: 'Position',
+    editorRotation: 'Rotation',
     editorBubbleText: 'Bubble text…',
     editorOutput: 'Output',
     editorCopy: 'Copy',
@@ -140,6 +143,7 @@ const messages: Record<Locale, Messages> = {
     editorBg: 'Фон',
     editorOpacity: 'Прозрачность',
     editorPosition: 'Позиция',
+    editorRotation: 'Поворот',
     editorBubbleText: 'Текст пузыря…',
     editorOutput: 'Вывод',
     editorCopy: 'Копировать',

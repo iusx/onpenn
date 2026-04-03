@@ -11,6 +11,8 @@ export interface ComicBubble {
   w?: number;
   /** Height as % of image size; omit for auto */
   h?: number;
+  /** Rotation angle in degrees */
+  rotation?: number;
   /** Font size in vw (default 1.5) */
   fontSize?: number;
   /** Background color, e.g. 'rgba(255,240,80,0.75)' */
